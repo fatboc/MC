@@ -1,8 +1,18 @@
+      integer i,d
+      real x,y(10),z(-3:3)
+      real ran1
+      d=-1
+      do i=1,100
+         write(*,*)ran1(d)
+      enddo
+      read(*,*)
+      end
+
       FUNCTION ran1(idum)
       INTEGER idum,IA,IM,IQ,IR,NTAB,NDIV
       REAL ran1,AM,EPS,RNMX
       PARAMETER (IA=16807,IM=2147483647,AM=1./IM,IQ=127773,IR=2836,
-      *NTAB=32,NDIV=1+(IM-1)/NTAB,EPS=1.2e-7,RNMX=1.-EPS)
+     *NTAB=32,NDIV=1+(IM-1)/NTAB,EPS=1.2e-7,RNMX=1.-EPS)
       INTEGER j,k,iv(NTAB),iy
       SAVE iv,iy
       DATA iv /NTAB*0/, iy /0/
@@ -13,7 +23,7 @@
       idum=IA*(idum-k*IQ)-IR*k
       if (idum.lt.0) idum=idum+IM
       if (j.le.NTAB) iv(j)=idum
-      11 continue
+   11 continue
       iy=iv(1)
       endif
       k=idum/IQ
