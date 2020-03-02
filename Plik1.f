@@ -1,10 +1,21 @@
-      integer i,d
-      real x,y(10),z(-3:3)
+      integer i,d,l
+      real x,y,pi
       real ran1
       d=-1
-      do i=1,100
-         write(*,*)ran1(d)
+      l=0
+      do i=1,1000000
+      
+         x=ran1(d)
+         y=ran1(d)
+      
+         if (x**2.+y**2.<1) then
+            l = l+1
+
+         endif
       enddo
+      
+      pi=4.*(l/1000000.)
+      write(*,*)pi
       read(*,*)
       end
 
